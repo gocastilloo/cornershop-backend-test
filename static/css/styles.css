@@ -1,0 +1,16 @@
+html, body {
+    background: #fe6d73;
+    height: 100%;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+#menu-box {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.0975);
+    border-radius: 10px;
+    margin-top: 2em;
+}
+#icon_out {
+    font-size:20px;
+}

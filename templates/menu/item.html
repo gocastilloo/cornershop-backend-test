@@ -1,0 +1,28 @@
+<div class="row w-100 justify-content-center align-items-center" id="menu-box">
+  <div class="media pt-3 pl-3 pb-1">
+      <div class="media-body">
+          <p>{{ i.pk }}</p>
+          <p>{{ i.dish_name }}</p>
+          <img src="{{ i.image.url }}" height="150px">
+          <p>{{ i.description }}</p>
+      </div>
+  </div>
+
+  <form method="POST" action="{% url "order" %}">
+      {% csrf_token %}
+      <div class="form-group" >
+          <label>Ingredients:</label>
+          <br>
+          {% for ingredient in form.ingredients %}
+              <label>{{ ingredient }}</label>
+              <br>
+          {% endfor %}
+          <label for="quantity">Quantity (between 1 and 5):</label>
+          <input type="number" id="quantity" name="quantity" min="1" max="5">
+          <input type="hidden" name="id" value="{{ i.pk }}">
+
+      </div>
+      <button class="btn btn-primary col-12 mt-5" type="submit">Order!</button>
+  </form>
+
+</div>

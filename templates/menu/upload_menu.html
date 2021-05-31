@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-6 p-4" id="menu-box">
+            <h2 class="text-center">¿What's the next bite?</h2>
+            <img src="{% static "img/corner.png" %}" class="img-fluid rounded mx-auto d-block pb-4" style="max-width: 60%;">
+
+            <form action="{% url 'upload_menu' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label>Food</label>
+                    <input class="form-control" type="text" name="dish_name" placeholder="Dish name"/>
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea class="form-control" name="description" placeholder="Dish description"></textarea>
+                </div>
+
+                <div class="form-group-sm">
+                    <label>New ingredients</label>
+                    <input class="form-control" type="text" name="new_ingredients" placeholder="Add ingredient"/>
+                </div>
+                <br>
+                <div class="form-group ">
+                    <label>Ingredients</label>
+                    <br>
+                    {% for ingredient in form.ingredients %}
+                        <label>{{ ingredient }}</label>
+                    {% endfor %}
+                </div>
+
+                <br>
+                <hr><br>
+
+                <div class='input-group'>
+                    <div class="custom-file">
+                        <p class="ml-4">Add an image<input type="file" name="image" ></p>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary col-12 mt-5">Upload Menu</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

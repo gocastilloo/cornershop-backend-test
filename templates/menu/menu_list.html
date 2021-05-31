@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head_content %}
+    <title>Today's menu</title>
+{% endblock%}
+
+{% block content %}
+    <div class="container">
+        <div class="row text-center" id="menu-box">
+            <h2>Nora's menu</h2>
+            <h3>{{ now }}</h3>
+            <a href="{%  url "logout" %}" style="font-size:30px;" ><i class="fas fa-sign-out-alt"></i></a>
+        </div>
+        <div class="col-sm-12 col-md-8 offset-md-2 mt-5 p-0 post-container">
+            {% for i in menu %}
+                {% include "menu/item.html" %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
