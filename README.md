@@ -46,7 +46,7 @@ The base URL will be:
 If you want to login:
 * `/login`
 
-If you want to list the menu:
+If you want to list/order the menu:
 * `/menu` 
 
 If you want to upload new food:
